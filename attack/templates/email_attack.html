@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} ایمیل بمبر {% endblock %}
+
+{% block color %} #ffcc99 {% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {% for error in form_emailatack.email_form.errors %}
+        <p style="color: red;">{{ error }}</p>
+    {% endfor %}
+    <div class="row g-3 align-items-center">
+    <div class="col-auto">
+        <label  class="col-form-label">ایمیل تارگت را وارد نمایید</label>
+    </div>
+    <div class="col-auto">
+        {{ form_emailatack.email_form }}
+    </div>
+    <div class="col-auto">
+        <span  class="form-text">
+        cherge-bomb@gmail.com :‌ مثال
+        </span>
+    </div>
+    </div>
+    <br/>
+    <div class="row g-3 align-items-center">
+    <div class="col-auto">
+        <label  class="col-form-label">متن پیامی که به تارگت میخواین فرستاده بشه وارد نمایید</label>
+    </div>
+    <div class="col-auto">
+        {{ form_emailatack.message_form }}
+    </div>
+    <div class="col-auto">
+        <span>
+        اخطار: برای اینکه پیامتون ارسال بشه حتما باید از کلمات انگلیسی استفاده کنید 
+        </span>
+    </div>
+    </div>
+    <br/>
+    <div class="row g-3 align-items-center">
+    <div class="col-auto">
+        <label  class="col-form-label">لطفا تعداد حمله خود را وارد کنید</label>
+    </div>
+    <div class="col-auto">
+        {{ form_emailatack.number_attack }}
+    </div>
+    <div class="col-auto">
+        <span  class="form-text">
+        20 :‌ مثال
+        </span>
+    </div>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

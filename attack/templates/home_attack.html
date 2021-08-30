@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} صفحه ی حمله {% endblock %}
+
+{% block color %} #ccffff {% endblock %}
+
+{% block content %}
+
+<br/>
+<br/>
+<br/>
+
+<div style="text-align:center;">
+    <a class="btn btn-primary" href="{% url 'emailattack' %}" role="button">email attack</a>
+    <a class="btn btn-danger" href="{% url 'smsbomber' %}" role="button">sms bomber</a>
+</div>
+
+{% endblock %}

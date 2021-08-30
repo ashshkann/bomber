@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %} اسمس بمبر {% endblock %}
+
+{% block color %} #ffcc99 {% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    {% for error in form_emailatack.sms_form.errors %}
+        <p style="color: red;">{{ error }}</p>
+    {% endfor %}
+    <div class="row g-3 align-items-center">
+    <div class="col-auto">
+        <label  class="col-form-label">شماره تلفن تارگت را وارد نمایید</label>
+    </div>
+    <div class="col-auto">
+        {{ form_emailatack.sms_form }}
+    </div>
+    <div class="col-auto">
+        <span  class="form-text">
+         +بایاد از +98  استفاده کنید مثال: 989121000000        
+        </span>
+    </div>
+    </div>
+    <br/>
+        <div class="row g-3 align-items-center">
+    <div class="col-auto">
+        <label  class="col-form-label">لطفا تعداد حمله خود را وارد کنید</label>
+    </div>
+    <div class="col-auto">
+        {{ form_emailatack.number_attack }}
+    </div>
+    <div class="col-auto">
+        <span  class="form-text">
+        20 :‌ مثال
+        </span>
+    </div>
+    </div>
+    <br/>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
